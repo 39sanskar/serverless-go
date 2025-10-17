@@ -18,26 +18,28 @@ This project demonstrates a serverless API built with Go, AWS Lambda, and Amazon
 
 ## Project Structure
 ```bash
+
 serverless-go/
-├── build/ # Compiled deployment artifacts
-│ └── main.zip # Zipped Go Lambda function (for deployment)
-├── cmd/ # Main application entry point
-│ └── main.go # Lambda handler and initialization
-├── config/ # Application configuration loading
-│ └── config.go # Loads environment variables
-├── pkg/ # Core application logic
-│ ├── handlers/ # API Gateway event handlers
-│ │ ├── api_response.go # Generic API response utility
-│ │ └── handlers.go # User API methods (GetUser, CreateUser, etc.)
-│ ├── models/ # Data structures (e.g., User struct)
-│ │ └── user.go # User model definition
-│ ├── repository/ # Data access layer interface and implementations
-│ │ └── user_repository.go # DynamoDB user repository implementation
-│ └── validators/ # Input validation logic
-│ └── validators.go # Functions for validating user input
-├── go.mod # Go module definition
-├── go.sum # Go module checksums
-└── README.md # This documentation file
+├── build/                  # Deployment artifacts (not committed usually)
+│   └── main.zip            # Compiled + zipped Lambda binary
+├── cmd/                    # Entrypoint(s) for your app
+│   └── main.go             # Lambda handler & service wiring
+├── config/                 # Configuration management
+│   └── config.go           # Loads env vars, AWS session config, etc.
+├── pkg/                    # Core reusable application logic
+│   ├── handlers/           # API Gateway handlers (Lambda entry methods)
+│   │   ├── api_response.go # Standardized API responses
+│   │   └── handlers.go     # Actual request handlers (e.g., GetUser)
+│   ├── models/             # Domain models
+│   │   └── user.go         # Example: User struct definition
+│   ├── repository/         # Data layer (DynamoDB interactions)
+│   │   └── user_repository.go
+│   └── validators/         # Validation logic
+│       └── validators.go   # Validation functions (e.g., email format)
+├── go.mod                  # Go module declaration
+├── go.sum                  # Dependency checksums
+└── README.md               # Project documentation
+
 ```
 
 
